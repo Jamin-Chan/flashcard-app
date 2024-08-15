@@ -2,7 +2,10 @@
 
 import { useUser } from "@clerk/nextjs"
 import { Container,Grid, Card, CardActionArea, Typography, CardContent } from "@mui/material"
-import { useState, useEffect, useRouter } from "react"
+import { useState, useEffect } from "react"
+import { db } from '@/firebase'
+import { useRouter } from "next/navigation"
+import { collection, doc, getDoc, setDoc, writeBatch } from "firebase/firestore"
 
 
 
@@ -17,7 +20,7 @@ export default function Flashcard() {
           const docRef = doc(collection(db, 'users'), user.id)
           const docSnap = await getDoc(docRef)
           if (docSnap.exists()) {
-            const collections = docSnap.data().flashcards || []
+            const collections = docSnap.data().flashcardSets || []
             setFlashcards(collections)
           } else {
             await setDoc(docRef, { flashcards: [] })
@@ -25,6 +28,10 @@ export default function Flashcard() {
         }
         getFlashcards()
     }, [user])
+
+    const handleCardClick = (id) => {
+      router.push(`/flashcard?id=${id}`)
+    }
 
     return (
       <Container maxWidth="md">

@@ -14,7 +14,7 @@ export default function SignUpPage() {
         </Typography>
         <Button color="inherit">
             <Link href="/login" passHref>
-            Login
+            Sign Up
             </Link>
         </Button>
         </Toolbar>
