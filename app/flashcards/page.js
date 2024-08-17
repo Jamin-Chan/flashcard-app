@@ -5,7 +5,7 @@ import { Container,Grid, Card, CardActionArea, Typography, CardContent } from "@
 import { useState, useEffect } from "react"
 import { db } from '@/firebase'
 import { useRouter } from "next/navigation"
-import { collection, doc, getDoc, setDoc, writeBatch } from "firebase/firestore"
+import { collection, doc, getDoc, setDoc } from "firebase/firestore"
 
 
 
@@ -16,7 +16,9 @@ export default function Flashcard() {
   
     useEffect(() => {
         async function getFlashcards() {
-          if (!user) return
+          if (!user) {
+            return
+          }
           const docRef = doc(collection(db, 'users'), user.id)
           const docSnap = await getDoc(docRef)
           if (docSnap.exists()) {
