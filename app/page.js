@@ -51,7 +51,7 @@ export default function Home() {
     }
 
     return(
-        <Box>
+        <Box bgcolor="#f0f0f0">
             <ThemeProvider theme={buttonTheme}>
             <AppBar sx={{width:"100vw", bgcolor:"#9facc2"}}>
                 <Toolbar>
@@ -76,35 +76,46 @@ export default function Home() {
                             alignItems="center" 
                             justifyContent={'center'} 
                             flexDirection = 'column'
+
                         >
                             <Typography variant="h2" component="h1" gutterBottom>
                                 Welcome to GenCard AI
                             </Typography>
-                            <Typography variant="h5" component="h2" gutterBottom>
-                                The easiest way to create flashcards from your text.
+                            <Typography variant="h5" component="h2" style={{ wordWrap: "break-word", width: "75%"}} gutterBottom>
+                            Unlock the power of smart studying with GenCard, 
+                            the ultimate AI-powered flashcard generator designed to transform the way you learn. 
+                            Whether you're a student prepping for exams, a professional enhancing your skills, or just someone hungry for knowledge, 
+                            GenCard is here to make studying more efficient, personalized, and fun.
                             </Typography>
-                            <Button variant="contained" color="primary" sx={{mt: 2, bgcolor:"buttonBlue.light"}} href="/generate">
-                                Get Started
-                            </Button>
-                            <Button variant="contained" color="primary" sx={{mt: 2, bgcolor:"buttonBlue.light"}} href="/flashcards">
-                                My flashcards
-                            </Button>
+                            <Box display="flex" flexDirection = 'row' >
+                                <Button variant="contained" color="primary" sx={{margin: 2, bgcolor:"buttonBlue.light" }} href="/generate">
+                                    Get Started
+                                </Button>
+                                <Button variant="contained" color="primary" sx={{margin: 2, bgcolor:"buttonBlue.light"}} href="/flashcards">
+                                    My flashcards
+                                </Button>
+                            </Box>
                         </Grid>
                     <Grid item xs = {12} md = {6}>
-                        <Box height = {"100vh"}>
-                            <img 
-                            src={"/images/notecard cartoon.jpg"}
-                            width="100%"
-                            height="100%"
+                        <Box height = {"100vh"}
+                            display="flex" 
+                            alignContent={'center'} 
+                            alignItems="center" 
+                            justifyContent={'center'} 
+                        >
+                            <img
+                            src={"/images/notebook cartoon transparent.png"}
+                            width="75%"
+                            height="75%"
                             />
                         </Box>
                     </Grid>
                 </Grid>
             </Box>
-            <Box sx={{my: 6, textAlign: 'center'}}>
+            <Box sx={{height: '600px', textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column'}} >
                 <Typography variant="h4" gutterBottom>Features</Typography>
-                <Grid container spacing={4}>
-                    <Grid item xs = {12} md = {4}>
+                <Grid container spacing={4} sx={{display: 'flex', textAlign: 'center', justifyContent: 'center'}} >
+                    <Grid item xs = {12} md = {3}>
                         <Box
                             sx={{
                                 P: 3,
@@ -120,11 +131,11 @@ export default function Home() {
                             </Typography>
                         </Box>
                     </Grid>
-                    <Grid item xs = {12} md = {4}>
+                    <Grid item xs = {12} md = {3}>
                         <Box
                             sx={{
                                 P: 3,
-                                border: '10px solid',
+                                border: '2px solid',
                                 borderColor: 'grey.300',
                                 borderRadius: 2,
                             }}
@@ -136,11 +147,11 @@ export default function Home() {
                             </Typography>
                         </Box>
                     </Grid>
-                    <Grid item xs = {12} md = {4}>
+                    <Grid item xs = {12} md = {3}>
                         <Box
                             sx={{
                                 P: 3,
-                                border: '10px solid',
+                                border: '2px solid',
                                 borderColor: 'grey.300',
                                 borderRadius: 2,
                             }}
@@ -154,11 +165,11 @@ export default function Home() {
                     </Grid>
                 </Grid>
             </Box>
-            <Box sx={{my: 6, textAlign: 'center'}}>
+            <Box sx={{height: '600px', textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
                 <Typography variant="h4" component="h2" gutterBottom>Pricing</Typography>
-                <Grid container spacing={4} justifyContent="center">
-                    <Grid item xs = {12} md = {4}>
-                    <Box
+                <Grid container spacing={4} sx={{display: 'flex', textAlign: 'center', justifyContent: 'center'}} >
+                    <Grid item xs = {12} md = {3}>
+                        <Box
                             sx={{
                                 P: 3,
                                 border: '2px solid',
@@ -184,8 +195,8 @@ export default function Home() {
                         </Button>
                     </Box>
                     </Grid>
-                    <Grid  item xs = {12} md = {4}>
-                    <Box
+                    <Grid  item xs = {12} md = {3}>
+                        <Box
                             sx={{
                                 P: 3,
                                 border: '2px solid',
@@ -207,8 +218,8 @@ export default function Home() {
                         </Button>
                     </Box>
                     </Grid>
-                    <Grid item xs = {12} md = {4}>
-                    <Box
+                    <Grid item xs = {12} md = {3}>
+                        <Box
                             sx={{
                                 P: 3,
                                 border: '2px solid',
