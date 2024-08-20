@@ -81,7 +81,7 @@ export default function Home() {
                                 Welcome to GenCard AI
                             </Typography>
                             <Typography variant="h5" component="h2" gutterBottom>
-                                The easiest way to create flashcards from your text.
+                                The simplest method for making cheatsheets! Just provide the topic and our AI will do the rest!
                             </Typography>
                             <Button variant="contained" color="primary" sx={{mt: 2, bgcolor:"buttonBlue.light"}} href="/generate">
                                 Get Started
@@ -93,7 +93,7 @@ export default function Home() {
                     <Grid item xs = {12} md = {6}>
                         <Box height = {"100vh"}>
                             <img 
-                            src={"/images/notecard cartoon.jpg"}
+                            src={"/images/flashcard-app-image.png"}
                             width="100%"
                             height="100%"
                             />
