@@ -107,20 +107,24 @@ export default function Generate() {
                 Generate Flashcards
                 </Typography>
                 <TextField
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                label="Enter text"
-                fullWidth
-                multiline
-                rows={4}
-                variant="outlined"
-                sx={{ mb: 2 }}
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    label="Enter text"
+                    fullWidth
+                    multiline
+                    rows={4}
+                    variant="outlined"
+                    sx={{ mb: 2 }}
                 />
+                 <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="fileUpload" required/>
+                    <button type="submit">Upload</button>
+                </form>
                 <Button
-                variant="contained"
-                color="primary"
-                onClick={handleSubmit}
-                fullWidth
+                    variant="contained"
+                    color="primary"
+                    onClick={handleSubmit}
+                    fullWidth
                 >
                 Generate Flashcards
                 </Button>

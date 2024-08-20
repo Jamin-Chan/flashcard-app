@@ -50,6 +50,18 @@ export async function POST(req) {
           }
     });
 
+    async function uploadToGemini(path, mimeType) {
+      const uploadResult = await fileManager.uploadFile(path, {
+        mimeType,
+        displayName: path,
+      });
+      const file = uploadResult.file;
+      console.log(`Uploaded file ${file.displayName} as: ${file.name}`);
+      return file;
+    }
+
+
+
     const data = await req.text()
   
     const result = await model.generateContent(data);
@@ -57,9 +69,5 @@ export async function POST(req) {
 
     console.log(flashcards);
 
-    // const response = await result.response;
-    // const flashcards = JSON.parse(response[0])
-    // console.log(flashcards);
-    // Return the flashcards as a JSON response
     return NextResponse.json(flashcards.flashcards)
 }
