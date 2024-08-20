@@ -1,5 +1,6 @@
-'use client'
+"use client"
 
+import Nav from "../../public/pages/Nav.js"
 import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
 import { 
   Container, 
@@ -14,7 +15,7 @@ import {
   Toolbar
 } from "@mui/material"
 import { useState, useEffect } from "react"
-import { db } from '@/firebase'
+import { db } from "@/firebase"
 import { useRouter } from "next/navigation"
 import { collection, doc, getDoc, setDoc } from "firebase/firestore"
 
@@ -30,7 +31,7 @@ export default function Flashcard() {
           if (!user) {
             return
           } else {
-            const docRef = doc(collection(db, 'users'), user.id)
+            const docRef = doc(collection(db, "users"), user.id)
             const docSnap = await getDoc(docRef)
             if (docSnap.exists()) {
               const collections = docSnap.data().flashcardSets || []
@@ -47,9 +48,13 @@ export default function Flashcard() {
       router.push(`/flashcard?id=${id}`)
     }
 
+    const handleBack = () => {
+      router.push("/")
+    }
     return (
       <Container maxWidth="md">
-        <Typography variant="h2" style={{flexGrow: 1, paddingLeft: 10}}>
+        <Nav/>
+        <Typography variant="h2" style={{flexGrow: 1, paddingLeft: 10 }}>
             Your FlashCard Sets
         </Typography>
         <Grid container spacing={3} sx={{ mt: 4 }}>
@@ -67,6 +72,12 @@ export default function Flashcard() {
             </Grid>
           ))}
         </Grid>
+        <Box sx={{ mt: 4, display: "flex", justifyContent: "center" }}>
+                    <Button variant="contained" color="primary" onClick={handleBack}>
+                    back
+                    </Button>
+                </Box>
+        
       </Container>
     )
   }

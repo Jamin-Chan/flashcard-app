@@ -1,6 +1,6 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from "next/server"
 import { GoogleGenerativeAI } from "@google/generative-ai"
-import { env } from 'node:process';
+import { env } from "node:process";
 
 const systemPrompt = `You are a flashcard creator, you take in text and create multiple flashcards from it. Make sure to create exactly 10 flashcards.
 Both front and back should be one sentence long. The front sohuld be a question while the back is the answer.
@@ -21,11 +21,11 @@ You should return in the following JSON format:
 
 //   const completion = await openai.chat.completions.create({
 //     messages: [
-//       { role: 'system', content: systemPrompt },
-//       { role: 'user', content: data },
+//       { role: "system", content: systemPrompt },
+//       { role: "user", content: data },
 //     ],
-//     model: 'gpt-4o',
-//     response_format: { type: 'json_object' },
+//     model: "gpt-4o",
+//     response_format: { type: "json_object" },
 //   })
 
 //   // Parse the JSON response from the OpenAI API
