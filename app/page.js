@@ -72,7 +72,7 @@ export default function Home() {
                             <Typography variant="h5" component="h2" style={{ wordWrap: "break-word", width: "75%"}} gutterBottom>
                             Unlock the power of smart studying with GenCard, 
                             the ultimate AI-powered flashcard generator designed to transform the way you learn. 
-                            Whether you"re a student prepping for exams, a professional enhancing your skills, or just someone hungry for knowledge, 
+                            Whether you are a student prepping for exams, a professional enhancing your skills, or just someone hungry for knowledge, 
                             GenCard is here to make studying more efficient, personalized, and fun.
                             </Typography>
                             <Box display="flex" flexDirection = "row" >
@@ -132,7 +132,7 @@ export default function Home() {
                             <Typography variant="h6">Easy Text Input</Typography>
                             <Typography>
                                 {" "}
-                                Our flashcard generator is easy to use. Simply "click get started", type whatever you want, and click "generate flashcards" and you"re done!
+                                Our flashcard generator is easy to use. Simply click Get Started, type whatever you want, and click Generate Flashcards and you are done!
                                 In the future, we plan on adding more options for generating flashcards to improve accessibility.
                             </Typography>
                         </Box>
@@ -149,7 +149,7 @@ export default function Home() {
                             <Typography variant="h6">Saves Flashcard History</Typography>
                             <Typography>
                                 {" "}
-                                Want to save and check out your previous sets of flashcards? After generating a set, click "save". You can click "My Flashcards" transition find all the sets you"ve created!
+                                Want to save and check out your previous sets of flashcards? After generating a set, click Save. You can click My Flashcards and find all the sets you have created!
                                 Note: If you want see your history, you must create and use an account to save the flashcard sets.
                             </Typography>
                         </Box>
