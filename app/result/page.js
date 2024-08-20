@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { useEffect, useState } from "react"
 import getStripe from "@/utils/get-stripe"
@@ -10,7 +10,7 @@ import { Container, CircularProgress, Typography, Box } from "@mui/material"
 const ResultPage = () => {
     const router = useRouter()
     const searchParams = useSearchParams()
-    const session_id = searchParams.get('session_id')
+    const session_id = searchParams.get("session_id")
     const [loading, setLoading] = useState(true)
     const [session, setSession] = useState(null)
     const [error, setError] = useState(null)
@@ -27,7 +27,7 @@ const ResultPage = () => {
               setError(sessionData.error)
             }
           } catch (err) {
-            setError('An error occurred while retrieving the session.')
+            setError("An error occurred while retrieving the session.")
           } finally {
             setLoading(false)
           }
@@ -37,7 +37,7 @@ const ResultPage = () => {
 
     if (loading) {
         return (
-          <Container maxWidth="sm" sx={{textAlign: 'center', mt: 4}}>
+          <Container maxWidth="sm" sx={{textAlign: "center", mt: 4}}>
             <CircularProgress />
             <Typography variant="h6" sx={{mt: 2}}>
               Loading...
@@ -48,7 +48,7 @@ const ResultPage = () => {
 
     if (error) {
         return (
-          <Container maxWidth="sm" sx={{textAlign: 'center', mt: 4}}>
+          <Container maxWidth="sm" sx={{textAlign: "center", mt: 4}}>
             <Typography variant="h6" color="error">
               {error}
             </Typography>
@@ -57,8 +57,8 @@ const ResultPage = () => {
     }
 
     return (
-        <Container maxWidth="sm" sx={{textAlign: 'center', mt: 4}}>
-          {session.payment_status === 'paid' ? (
+        <Container maxWidth="sm" sx={{textAlign: "center", mt: 4}}>
+          {session.payment_status === "paid" ? (
             <>
               <Typography variant="h4">Thank you for your purchase!</Typography>
               <Box sx={{mt: 2}}>
