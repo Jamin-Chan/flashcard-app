@@ -1,10 +1,11 @@
-'use client'
+"use client"
 
 import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
+import Nav from "../public/pages/Nav.js"
 import getStripe from "@/utils/get-stripe";
+import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { blue } from '@mui/material/colors';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { 
     Box, 
     AppBar, 
@@ -22,9 +23,9 @@ buttonTheme = createTheme(buttonTheme, {
     palette: {
         buttonBlue: buttonTheme.palette.augmentColor({
         color: {
-          main: '#0000ff',
+          main: "#0000ff",
         },
-        name: 'buttonBlue',
+        name: "buttonBlue",
       }),
     },
   });
@@ -34,9 +35,9 @@ export default function Home() {
     const router = useRouter()
 
     const handleSubmit = async () => {
-        const checkoutSession = await fetch('/api/checkout_sessions', {
-          method: 'POST',
-          headers: { origin: 'http://localhost:3000' },
+        const checkoutSession = await fetch("/api/checkout_sessions", {
+          method: "POST",
+          headers: { origin: "http://localhost:3000" },
         })
         const checkoutSessionJson = await checkoutSession.json()
       
@@ -53,29 +54,16 @@ export default function Home() {
     return(
         <Box bgcolor="#f0f0f0">
             <ThemeProvider theme={buttonTheme}>
-            <AppBar sx={{width:"100vw", bgcolor:"#9facc2"}}>
-                <Toolbar>
-                    <Typography variant="h6" style={{flexGrow: 1, paddingLeft: 10}}>
-                        GenCard AI  
-                    </Typography>
-                        <SignedOut>
-                            <Button sx={{bgcolor:"buttonBlue.light"}} variant="contained" color="secondary" href="/sign-in">Login</Button>
-                            <Button sx={{ ml: 2, bgcolor:"buttonBlue.light"}} variant="contained" color="secondary" href="/sign-up">Sign Up</Button>
-                        </SignedOut>
-                    <SignedIn>
-                    <UserButton/>
-                    </SignedIn>
-                </Toolbar>
-            </AppBar>
-            <Box sx={{my: 6, textAlign: 'center', width:'100vw'}}  display="flex" alignContent={'center'} alignItems="center" bgcolor="#f0f0f0" height = "100vh">
+            <Nav/>
+            <Box sx={{my: 6, textAlign: "center", width:"100vw"}}  display="flex" alignContent={"center"} alignItems="center" bgcolor="#f0f0f0" height = "100vh">
                 <Grid container spacing = {4} justifyContent="space-between"> 
                         <Grid item xs = {12} md = {6} 
                             bgcolor="#f0f0f0" 
                             display="flex" 
-                            alignContent={'center'} 
+                            alignContent={"center"} 
                             alignItems="center" 
-                            justifyContent={'center'} 
-                            flexDirection = 'column'
+                            justifyContent={"center"} 
+                            flexDirection = "column"
 
                         >
                             <Typography variant="h2" component="h1" gutterBottom>
@@ -84,10 +72,10 @@ export default function Home() {
                             <Typography variant="h5" component="h2" style={{ wordWrap: "break-word", width: "75%"}} gutterBottom>
                             Unlock the power of smart studying with GenCard, 
                             the ultimate AI-powered flashcard generator designed to transform the way you learn. 
-                            Whether you're a student prepping for exams, a professional enhancing your skills, or just someone hungry for knowledge, 
+                            Whether you"re a student prepping for exams, a professional enhancing your skills, or just someone hungry for knowledge, 
                             GenCard is here to make studying more efficient, personalized, and fun.
                             </Typography>
-                            <Box display="flex" flexDirection = 'row' >
+                            <Box display="flex" flexDirection = "row" >
                                 <Button variant="contained" color="primary" sx={{margin: 2, bgcolor:"buttonBlue.light" }} href="/generate">
                                     Get Started
                                 </Button>
@@ -99,9 +87,9 @@ export default function Home() {
                     <Grid item xs = {12} md = {6}>
                         <Box height = {"100vh"}
                             display="flex" 
-                            alignContent={'center'} 
+                            alignContent={"center"} 
                             alignItems="center" 
-                            justifyContent={'center'} 
+                            justifyContent={"center"} 
                         >
                             <img
                             src={"/images/notebook cartoon transparent.png"}
@@ -112,22 +100,23 @@ export default function Home() {
                     </Grid>
                 </Grid>
             </Box>
-            <Box sx={{height: '600px', textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column'}} >
+            <Box sx={{height: "600px", textAlign: "center", display: "flex", alignItems: "center", flexDirection: "column"}} >
                 <Typography variant="h4" gutterBottom>Features</Typography>
-                <Grid container spacing={4} sx={{display: 'flex', textAlign: 'center', justifyContent: 'center'}} >
+                <Grid container spacing={4} sx={{display: "flex", textAlign: "center", justifyContent: "center"}} >
                     <Grid item xs = {12} md = {3}>
                         <Box
                             sx={{
                                 P: 3,
-                                border: '2px solid',
-                                borderColor: 'grey.300',
+                                border: "2px solid",
+                                borderColor: "grey.300",
                                 borderRadius: 2,
                             }}
                         >
-                            <Typography variant="h6">easy text input</Typography>
+                            <Typography variant="h6">Easy Topic Help</Typography>
                             <Typography>
-                                {' '}
-                                blah blah lbah
+                                {" "}
+                                Got a topic you need to study? Just provide the topic and let the app do the rest!
+                                The flashcard generator will create 10 flashcards with a question on the front and the answer on the back.
                             </Typography>
                         </Box>
                     </Grid>
@@ -135,15 +124,16 @@ export default function Home() {
                         <Box
                             sx={{
                                 P: 3,
-                                border: '2px solid',
-                                borderColor: 'grey.300',
+                                border: "2px solid",
+                                borderColor: "grey.300",
                                 borderRadius: 2,
                             }}
                         >
-                            <Typography variant="h6">easy text input</Typography>
+                            <Typography variant="h6">Easy Text Input</Typography>
                             <Typography>
-                                {' '}
-                                blah blah lbah
+                                {" "}
+                                Our flashcard generator is easy to use. Simply "click get started", type whatever you want, and click "generate flashcards" and you"re done!
+                                In the future, we plan on adding more options for generating flashcards to improve accessibility.
                             </Typography>
                         </Box>
                     </Grid>
@@ -151,43 +141,44 @@ export default function Home() {
                         <Box
                             sx={{
                                 P: 3,
-                                border: '2px solid',
-                                borderColor: 'grey.300',
+                                border: "2px solid",
+                                borderColor: "grey.300",
                                 borderRadius: 2,
                             }}
                         >
-                            <Typography variant="h6">easy text input</Typography>
+                            <Typography variant="h6">Saves Flashcard History</Typography>
                             <Typography>
-                                {' '}
-                                blah blah lbah
+                                {" "}
+                                Want to save and check out your previous sets of flashcards? After generating a set, click "save". You can click "My Flashcards" transition find all the sets you"ve created!
+                                Note: If you want see your history, you must create and use an account to save the flashcard sets.
                             </Typography>
                         </Box>
                     </Grid>
                 </Grid>
             </Box>
-            <Box sx={{height: '600px', textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
+            <Box sx={{height: "600px", textAlign: "center", display: "flex", alignItems: "center", flexDirection: "column"}}>
                 <Typography variant="h4" component="h2" gutterBottom>Pricing</Typography>
-                <Grid container spacing={4} sx={{display: 'flex', textAlign: 'center', justifyContent: 'center'}} >
+                <Grid container spacing={4} sx={{display: "flex", textAlign: "center", justifyContent: "center"}} >
                     <Grid item xs = {12} md = {3}>
                         <Box
                             sx={{
                                 P: 3,
-                                border: '2px solid',
-                                borderColor: 'grey.300',
+                                border: "2px solid",
+                                borderColor: "grey.300",
                                 borderRadius: 2,
                             }}
                         >
                         <Typography variant="h6">Free Tier</Typography>
                         <Typography>
-                            {' '}
+                            {" "}
                             blah blah lbah
                         </Typography>
                         <Button variant="contained" sx={{bgcolor:"buttonBlue.light"}}
                             onClick={() => {
                                 if (!user) {
-                                    router.push('/sign-up')
+                                    router.push("/sign-up")
                                 } else {
-                                    router.push('/generate')
+                                    router.push("/generate")
                                 }
                             }}
                         >
@@ -199,14 +190,14 @@ export default function Home() {
                         <Box
                             sx={{
                                 P: 3,
-                                border: '2px solid',
-                                borderColor: 'grey.300',
+                                border: "2px solid",
+                                borderColor: "grey.300",
                                 borderRadius: 2,
                             }}
                         >
                         <Typography variant="h6">Basic Tier</Typography>
                         <Typography>
-                            {' '}
+                            {" "}
                             blah blah lbah
                         </Typography>
                         <Button variant="contained" sx={{bgcolor:"buttonBlue.light"}}
@@ -222,14 +213,14 @@ export default function Home() {
                         <Box
                             sx={{
                                 P: 3,
-                                border: '2px solid',
-                                borderColor: 'grey.300',
+                                border: "2px solid",
+                                borderColor: "grey.300",
                                 borderRadius: 2,
                             }}
                         >
                         <Typography variant="h6">Pro Tier</Typography>
                         <Typography>
-                            {' '}
+                            {" "}
                             blah blah lbah
                         </Typography>
                         <Button variant="contained" sx={{bgcolor:"buttonBlue.light"}}
