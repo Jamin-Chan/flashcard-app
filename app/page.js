@@ -171,7 +171,7 @@ export default function Home() {
                         <Typography variant="h6">Free Tier</Typography>
                         <Typography>
                             {" "}
-                            blah blah lbah
+                            easy text filler
                         </Typography>
                         <Button variant="contained" sx={{bgcolor:"buttonBlue.light"}}
                             onClick={() => {
@@ -198,7 +198,7 @@ export default function Home() {
                         <Typography variant="h6">Basic Tier</Typography>
                         <Typography>
                             {" "}
-                            blah blah lbah
+                            easy text filler
                         </Typography>
                         <Button variant="contained" sx={{bgcolor:"buttonBlue.light"}}
                             onClick={() => {
@@ -221,7 +221,7 @@ export default function Home() {
                         <Typography variant="h6">Pro Tier</Typography>
                         <Typography>
                             {" "}
-                            blah blah lbah
+                            easy text filler
                         </Typography>
                         <Button variant="contained" sx={{bgcolor:"buttonBlue.light"}}
                             onClick={() => {
