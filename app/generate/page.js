@@ -1,5 +1,6 @@
 'use client'
 
+import Nav from "../../public/pages/Nav.js"
 import Input from './../../public/pages/Input';
 import { useState } from 'react';
 import { useUser } from "@clerk/nextjs";
@@ -134,8 +135,15 @@ export default function Generate() {
         }))
     }
 
+    const handleBack = () => {
+        router.push("/")
+    }
+
     return (
         <Container maxWidth="md">
+            <Box>
+                <Nav/>    
+            </Box>
             <Box sx={{ my: 4 }}>
                 <Typography variant="h4" component="h1" gutterBottom>
                 Generate Flashcards
@@ -229,6 +237,11 @@ export default function Generate() {
                     </Button>
                 </Box>
                 )}
+                <Box sx={{ mt: 4, display: "flex", justifyContent: "center" }}>
+                    <Button variant="contained" color="primary" onClick={handleBack}>
+                    back
+                    </Button>
+                </Box>
                 <Dialog open={dialogOpen} onClose={handleCloseDialog}>
                     <DialogTitle>Save Flashcard Set</DialogTitle>
                     <DialogContent>
