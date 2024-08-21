@@ -55,8 +55,8 @@ export default function Home() {
         <Box bgcolor="#f0f0f0">
             <ThemeProvider theme={buttonTheme}>
             <Nav/>
-            <Box sx={{my: 6, textAlign: "center", width:"100vw"}}  display="flex" alignContent={"center"} alignItems="center" bgcolor="#f0f0f0" height = "100vh">
-                <Grid container spacing = {4} justifyContent="space-between"> 
+            <Box sx={{my: 6, textAlign: "center", maxWidth:"100vw"}}  display="flex" alignContent={"center"} alignItems="center" bgcolor="#f0f0f0" height = "100vh">
+                <Grid container justifyContent="space-between"> 
                         <Grid item xs = {12} md = {6} 
                             bgcolor="#f0f0f0" 
                             display="flex" 

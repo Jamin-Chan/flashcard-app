@@ -61,7 +61,7 @@ export default function Input({ onSubmit }) {
                         },
                     }}
                 >
-                    {['Text', 'PDF', 'YouTube'].map((tab) => (
+                    {['Text', 'PDF'].map((tab) => (
                         <Tab
                             key={tab}
                             label={tab}

@@ -103,18 +103,23 @@ export default function Generate() {
         }
     }
 
+    async function getArrayBuffer(file) {
+        const fileReader = new FileReader();
+    
+        // Return a resolved or rejected promise directly from within the onload and onerror callbacks
+        return new Promise((resolve, reject) => {
+            fileReader.onload = () => resolve(fileReader.result);
+            fileReader.onerror = reject; // Automatically rejects with the error
+            fileReader.readAsArrayBuffer(file);
+        });
+    }
+
     const extractTextFromPDF = async (file) => {
         const fileReader = new FileReader();
     
         // Create a promise that resolves when the file is read
-        const arrayBuffer = await new Promise((resolve, reject) => {
-            fileReader.onload = () => resolve(fileReader.result);
-            fileReader.onerror = (error) => reject(error);
-            fileReader.readAsArrayBuffer(file);
-        });
+        const arrayBuffer = await getArrayBuffer(file);
 
-        
-    
         // Load the PDF document
         const pdf = await pdfjsLib.getDocument(new Uint8Array(arrayBuffer)).promise;
     
@@ -126,7 +131,7 @@ export default function Generate() {
             const pageText = content.items.map(item => item.str).join(' ');
             text += pageText + '\n';
         }
-    
+
         return text;
     };
 
