@@ -112,6 +112,8 @@ export default function Generate() {
             fileReader.onerror = (error) => reject(error);
             fileReader.readAsArrayBuffer(file);
         });
+
+        
     
         // Load the PDF document
         const pdf = await pdfjsLib.getDocument(new Uint8Array(arrayBuffer)).promise;
