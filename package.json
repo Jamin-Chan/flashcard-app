@@ -16,10 +16,13 @@
     "@mui/material": "^5.16.7",
     "@stripe/stripe-js": "^4.2.0",
     "firebase": "^10.12.5",
+    "framer-motion": "^11.3.28",
     "next": "14.2.5",
     "openai": "^4.55.5",
+    "pdfjs-dist": "^4.5.136",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^5.3.0",
     "stripe": "^16.7.0"
   },
   "devDependencies": {
