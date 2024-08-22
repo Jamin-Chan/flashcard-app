@@ -110,7 +110,7 @@ export default function Generate() {
         const arrayBuffer = await file.arrayBuffer();
 
         // Load the PDF document
-        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer });
     
         let text = '';
         // Extract text from each page
