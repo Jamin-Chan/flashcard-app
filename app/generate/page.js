@@ -7,7 +7,7 @@ import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { db } from '@/firebase';
 import * as pdfjsLib from 'pdfjs-dist/webpack';
-import { collection, doc, getDoc, setDoc, writeBatch } from "firebase/firestore";
+import { collection, doc, getDoc, writeBatch } from "firebase/firestore";
 import {
   Container,
   TextField,
@@ -104,9 +104,7 @@ export default function Generate() {
     }
 
     const extractTextFromPDF = async (file) => {
-        const fileReader = new FileReader();
-    
-        // Create a promise that resolves when the file is read
+
         const arrayBuffer = await file.arrayBuffer();
 
         // Load the PDF document
