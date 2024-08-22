@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import { db } from '@/firebase';
 import * as pdfjsLib from 'pdfjs-dist/webpack';
 import { collection, doc, getDoc, setDoc, writeBatch } from "firebase/firestore";
-import axios from 'axios';
 import {
   Container,
   TextField,
@@ -104,25 +103,14 @@ export default function Generate() {
         }
     }
 
-    async function getArrayBuffer(file) {
-        const fileReader = new FileReader();
-    
-        // Return a resolved or rejected promise directly from within the onload and onerror callbacks
-        return new Promise((resolve, reject) => {
-            fileReader.onload = () => resolve(fileReader.result);
-            fileReader.onerror = reject; // Automatically rejects with the error
-            fileReader.readAsArrayBuffer(file);
-        });
-    }
-
     const extractTextFromPDF = async (file) => {
         const fileReader = new FileReader();
     
         // Create a promise that resolves when the file is read
-        const arrayBuffer = await getArrayBuffer(file);
+        const arrayBuffer = await file.arrayBuffer();
 
         // Load the PDF document
-        const pdf = await pdfjsLib.getDocument(new Uint8Array(arrayBuffer)).promise;
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
     
         let text = '';
         // Extract text from each page
